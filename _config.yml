@@ -1,3 +1,5 @@
 theme: jekyll-theme-architect
 title: Welcome, are you a Scala lover?
-description: Khoa really loves Scala, you'll see him write about it here among other things. 
+description: Khoa really loves Scala, you'll see him write about it here among other things.
+plugins:
+  - jekyll-default-layout
