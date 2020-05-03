@@ -1,7 +1,3 @@
----
-layout: default
----
-
 ## Welcome to GitHub Pages
 
 {% for post in site.posts %}
