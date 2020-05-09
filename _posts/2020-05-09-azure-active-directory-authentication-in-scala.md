@@ -19,29 +19,29 @@ library, specifically the [UserPrincipalManager](https://github.com/microsoft/az
 class similarly to below
 
 ```scala
-  val aadAuthProps: AADAuthenticationProperties = new AADAuthenticationProperties()
-  aadAuthProps.setAllowTelemetry(false)
-  aadAuthProps.setSessionStateless(true)
-  aadAuthProps.setClientId(clientId)
-  aadAuthProps.setClientSecret(clientSecret)
-  aadAuthProps.setTenantId(azureTenant)
-  val serviceEndpoints = new ServiceEndpoints()
-  serviceEndpoints.setAadGraphApiUri("https://graph.windows.net/")
-  serviceEndpoints.setAadKeyDiscoveryUri("https://login.microsoftonline.com/common/discovery/keys/")
-  serviceEndpoints.setAadMembershipRestUri("https://graph.windows.net/me/memberOf?api-version=1.6")
-  serviceEndpoints.setAadSigninUri("https://login.microsoftonline.com/")
-  val serviceEndpointsProperties = new ServiceEndpointsProperties()
-  serviceEndpointsProperties.getEndpoints.put("global", serviceEndpoints)
+val aadAuthProps: AADAuthenticationProperties = new AADAuthenticationProperties()
+aadAuthProps.setAllowTelemetry(false)
+aadAuthProps.setSessionStateless(true)
+aadAuthProps.setClientId(clientId)
+aadAuthProps.setClientSecret(clientSecret)
+aadAuthProps.setTenantId(azureTenant)
 
-  val userPrincipalManager: UserPrincipalManager = new UserPrincipalManager(
-    serviceEndpointsProperties,
-    aadAuthProps,
-    resourceRetriever,
-    explicitAudienceCheck
-  )
+val serviceEndpoints = new ServiceEndpoints()
+serviceEndpoints.setAadGraphApiUri("https://graph.windows.net/")
+serviceEndpoints.setAadKeyDiscoveryUri("https://login.microsoftonline.com/common/discovery/keys/")
+serviceEndpoints.setAadMembershipRestUri("https://graph.windows.net/me/memberOf?api-version=1.6")
+serviceEndpoints.setAadSigninUri("https://login.microsoftonline.com/")
+val serviceEndpointsProperties = new ServiceEndpointsProperties()
+serviceEndpointsProperties.getEndpoints.put("global", serviceEndpoints)
 
-  def validateToken(token: String): Try[UserPrincipal] = Try(userPrincipalManager.buildUserPrincipal(token))
-}
+val userPrincipalManager: UserPrincipalManager = new UserPrincipalManager(
+serviceEndpointsProperties,
+aadAuthProps,
+resourceRetriever,
+explicitAudienceCheck
+)
+
+def validateToken(token: String): Try[UserPrincipal] = Try(userPrincipalManager.buildUserPrincipal(token))
 ```
 
 Notice how `aadAuthProps` and `serviceEndpoints` are constructed in a way that is somewhat counterintuitive. 
