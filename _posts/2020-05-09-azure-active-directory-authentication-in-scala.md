@@ -4,8 +4,8 @@ title: Using Spring/Azure authentication in Scala
 ---
 # Using Spring/Azure authentication in Scala
 
-One of the big concern when starting to use Scala in commercial projects is how you can leverage the existing wider JVM
-ecosystems of libraries. Scala is a relatively younger and highly productive language, but there are many popular, well 
+One of the big concerns when starting to use Scala in commercial projects is how you can leverage the existing wider JVM
+ecosystem of libraries. Scala is a relatively younger and highly productive language, but there are many popular, well 
 tested Java libraries and frameworks e.g. for web developments such as Spring. 
 
 For example, you want to implement JWT authentication with Azure Active Directory in Scala, browsing the [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-java) 
